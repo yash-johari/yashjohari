@@ -188,7 +188,7 @@ const Experience: React.FC = () => {
               Let's discuss how I can contribute to your next project.
             </p>
             <a
-              href="/contact"
+              href='/contact'
               className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105"
             >
               Get In Touch
