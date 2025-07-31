@@ -48,22 +48,22 @@ const Footer: React.FC = () => {
               <a href="/" className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
                 Home
               </a>
-              <a href="/about" className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
+              <a href='/about' className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
                 About
               </a>
-              <a href="/skills" className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
+              <a href='/skills' className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
                 Skills
               </a>
-              <a href="/projects" className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
+              <a href='/projects' className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
                 Projects
               </a>
-              <a href="/experience" className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
+              <a href='/experience' className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
                 Experience
               </a>
-              <a href="/education" className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
+              <a href='/education' className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
                 Education
               </a>
-              <a href="/contact" className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
+              <a href='/contact' className="block text-gray-400 hover:text-blue-400 transition-colors duration-200">
                 Contact
               </a>
             </div>
