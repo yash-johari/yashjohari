@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Bareilly, Uttar Pradesh, India', // Replace with actual location
+      value: 'Bareilly, Uttar Pradesh, India', 
       href: 'https://maps.app.goo.gl/royZcGXRQKPAQonb8',
     },
   ];

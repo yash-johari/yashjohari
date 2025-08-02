@@ -9,11 +9,13 @@ import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Education from './pages/Education';
 import Contact from './pages/Contact';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <ThemeProvider>
       <Router>
+        <ScrollToTop />
         <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
           <Navbar />
           <Routes>
