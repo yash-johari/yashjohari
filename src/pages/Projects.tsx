@@ -22,7 +22,7 @@ const Projects: React.FC = () => {
       image: eyeCarePlus,
       tech: ['React.js', 'Node.js', 'Express', 'PostgreSQL', 'API', 'Material UI'],
       githubUrl: 'https://github.com/yash-johari/eye-care-web-app', 
-      liveUrl: '#',
+      liveUrl: 'https://eye-care-medical-app.netlify.app/',
       category: 'Full Stack with Database',
       date: '2025',
     },
