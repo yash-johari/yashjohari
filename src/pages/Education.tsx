@@ -12,8 +12,8 @@ const Education: React.FC = () => {
       institution: 'MJP Rohilkhand University', 
       location: 'Bareilly, Uttar Pradesh', 
       duration: '2022 - 2025',
-      status: 'Graduated - Awaiting Final Semester Results',
-      gpa: 'CGPA: 7.02/10',
+      status: 'Graduated',
+      gpa: 'CGPA: 7.0/10',
       description: 'Comprehensive program covering computer science fundamentals, programming languages, software development, database management, and web technologies.',
       coursework: [
         'Data Structures',
