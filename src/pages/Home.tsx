@@ -231,7 +231,7 @@ const Home: React.FC = () => {
                 </p>
                 <div className="inline-flex items-center px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full text-sm font-medium mb-4">
                   <GraduationCap className="h-4 w-4 mr-2" />
-                  Graduated - Awaiting Final Semester Results
+                  Graduated
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                   Comprehensive program covering computer science fundamentals, programming languages, 
