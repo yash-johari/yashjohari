@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, ExternalLink } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  Instagram,
+  ExternalLink,
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import Footer from '../components/Footer';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -13,8 +23,11 @@ const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -24,24 +37,36 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Reset submission state after 3 seconds
-      setTimeout(() => setSubmitted(false), 3000);
-    }, 1000);
+
+    if (formRef.current) {
+      emailjs
+        .sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          formRef.current,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        )
+        .then(
+          () => {
+            setIsSubmitting(false);
+            setSubmitted(true);
+            setFormData({ name: '', email: '', subject: '', message: '' });
+            setTimeout(() => setSubmitted(false), 3000);
+          },
+          (error) => {
+            setIsSubmitting(false);
+            console.error('FAILED...', error.text);
+          }
+        );
+    }
   };
 
   const contactInfo = [
     {
       icon: Mail,
       label: 'Email',
-      value: 'yashjohari2508@gmail.com', 
-      href: 'mailto:yashjohari2508@gmail.com@gmail.com',
+      value: 'yashjohari2508@gmail.com',
+      href: 'mailto:yashjohari2508@gmail.com',
     },
     {
       icon: Phone,
@@ -52,7 +77,7 @@ const Contact: React.FC = () => {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Bareilly, Uttar Pradesh, India', 
+      value: 'Bareilly, Uttar Pradesh, India',
       href: 'https://maps.app.goo.gl/royZcGXRQKPAQonb8',
     },
   ];
@@ -67,7 +92,7 @@ const Contact: React.FC = () => {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/yash-johari-6575b41b9/', 
+      href: 'https://www.linkedin.com/in/yash-johari-6575b41b9/',
       color: 'hover:text-blue-600',
     },
     {
@@ -89,10 +114,14 @@ const Contact: React.FC = () => {
             className="text-center mb-16"
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Get In <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span>
+              Get In{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Touch
+              </span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Have a project in mind or want to collaborate? I'd love to hear from you!
+              Have a project in mind or want to collaborate? I'd love to hear
+              from you!
             </p>
           </motion.div>
 
@@ -107,7 +136,7 @@ const Contact: React.FC = () => {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Send Me a Message
               </h2>
-              
+
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -125,10 +154,13 @@ const Contact: React.FC = () => {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      >
                         Full Name *
                       </label>
                       <input
@@ -143,7 +175,10 @@ const Contact: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -158,9 +193,12 @@ const Contact: React.FC = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
                       Subject
                     </label>
                     <input
@@ -173,9 +211,12 @@ const Contact: React.FC = () => {
                       placeholder="What's this about?"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
                       Message *
                     </label>
                     <textarea
@@ -189,7 +230,7 @@ const Contact: React.FC = () => {
                       placeholder="Tell me about your project or idea..."
                     />
                   </div>
-                  
+
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -236,10 +277,14 @@ const Contact: React.FC = () => {
                         <info.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                       </div>
                       <div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{info.label}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {info.label}
+                        </p>
                         <a
                           href={info.href}
-                          className="text-gray-900 dark:text-white font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200" target='_blank'
+                          className="text-gray-900 dark:text-white font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
                           {info.value}
                         </a>
@@ -271,7 +316,8 @@ const Contact: React.FC = () => {
                   ))}
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm mt-6">
-                  Follow me on social media for updates on my latest projects and tech insights.
+                  Follow me on social media for updates on my latest projects
+                  and tech insights.
                 </p>
               </div>
 
@@ -281,12 +327,18 @@ const Contact: React.FC = () => {
                   Download My Resume
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-6">
-                  Get a detailed overview of my experience, skills, and qualifications.
+                  Get a detailed overview of my experience, skills, and
+                  qualifications.
                 </p>
                 <button
-                onClick={() => window.open('https://drive.google.com/file/d/1v07M__hEa1PbhhnHMHeMf4XAvm_BdQjC/view?usp=drive_link', '_blank')}
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105">
-                  {/* Replace with actual resume PDF */}
+                  onClick={() =>
+                    window.open(
+                      'https://drive.google.com/file/d/1v07M__hEa1PbhhnHMHeMf4XAvm_BdQjC/view?usp=drive_link',
+                      '_blank'
+                    )
+                  }
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105"
+                >
                   <ExternalLink className="h-5 w-5 mr-2" />
                   View Resume
                 </button>
