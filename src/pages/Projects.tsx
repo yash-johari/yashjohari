@@ -12,11 +12,24 @@ import drumKit from '../assets/images/drum-kit.png';
 import diceGame from '../assets/images/dice-game.png';
 import simonGame from '../assets/images/simon-game.png';
 import tinDog from '../assets/images/tindog.png';
+import anejaTransport from '../assets/images/aneja-transport.png';
+import calculator from '../assets/images/calculator.png';
 
 const Projects: React.FC = () => {
   const projects = [
     {
       id: 1,
+      title: 'Aneja Bareilly',
+      description: 'A responsive business website developed for Aneja Transport, a transport firm in Bareilly. Built with React, Tailwind, and Node.js, it highlights services, company profile, and streamlined contact options.',
+      image: anejaTransport,
+      tech: ['React.js', 'Tailwind CSS', 'Node.js', 'Material UI'],
+      githubUrl: '#', 
+      liveUrl: 'https://anejabareilly.com/',
+      category: 'Client Project',
+      date: '2025',
+    },
+    {
+      id: 2,
       title: 'EyeCare Plus',
       description: 'An app that suggests suitable eye drops based on user symptoms and provides detailed eye care tips and a city-wise doctor directory.',
       image: eyeCarePlus,
@@ -27,7 +40,7 @@ const Projects: React.FC = () => {
       date: '2025',
     },
     {
-      id: 2,
+      id: 3,
       title: 'World Capital Quiz',
       description: 'A quiz game that displays random countries and prompts users to enter their capitals, with scoring and game-over functionality upon a wrong answer.',
       image: worldCapitalQuiz,
@@ -38,7 +51,7 @@ const Projects: React.FC = () => {
       date: '2024',
     },
     {
-      id: 3,
+      id: 4,
       title: 'To-Do List',
       description: 'A task management app allowing users to add, update, and delete tasks, with full data persistence even after refreshing or restarting.',
       image: toDoList,
@@ -49,7 +62,7 @@ const Projects: React.FC = () => {
       date: '2024',
     },
     {
-      id: 4,
+      id: 5,
       title: 'Old Portfolio',
       description: 'A personal portfolio showcasing projects, skills, and contact details through a clean, static layout suitable for basic professional presentation.',
       image: oldPortfolio,
@@ -60,7 +73,7 @@ const Projects: React.FC = () => {
       date: '2024',
     },
     {
-      id: 5,
+      id: 6,
       title: 'Blog Hub',
       description: 'A blogging platform where users can compose, view, and manage blog posts, offering a simple and interactive content-sharing experience.',
       image: blogHub,
@@ -71,7 +84,7 @@ const Projects: React.FC = () => {
       date: '2024',
     },
     {
-      id: 6,
+      id: 7,
       title: 'Drum Kit',
       description: 'An interactive virtual drum kit that plays different drum sounds on button click or keypress, mimicking a real drumming experience.',
       image: drumKit,
@@ -82,18 +95,18 @@ const Projects: React.FC = () => {
       date: '2023',
     },
     {
-      id: 7,
+      id: 8,
       title: 'Dice Game',
       description: 'A two-player dice rolling game that displays random outcomes and declares a winner based on the higher roll after each round.',
       image: diceGame,
-      tech: ['HTML5', 'CSS3', 'Javascript', 'Bootstrap'],
+      tech: ['HTML5', 'CSS3', 'Javascript'],
       githubUrl: 'https://github.com/yash-johari/Dice-Game', 
       liveUrl: 'https://yash-johari.github.io/Dice-Game/', 
       category: 'Full Stack',
       date: '2023',
     },
     {
-      id: 8,
+      id: 9,
       title: 'Simon Game',
       description: 'A memory game that challenges users to follow increasingly complex color patterns, improving focus and short-term memory through repetition.',
       image: simonGame,
@@ -104,7 +117,18 @@ const Projects: React.FC = () => {
       date: '2023',
     },
     {
-      id: 9,
+      id: 10,
+      title: 'Simple Calculator',
+      description: 'A basic calculator app that performs addition, subtraction, multiplication, and division with a clean and user-friendly interface.',
+      image: calculator,
+      tech: ['HTML5', 'CSS3', 'Javascript'],
+      githubUrl: 'https://github.com/yash-johari/calculator', 
+      liveUrl: 'https://yash-johari.github.io/calculator/', 
+      category: 'Frontend',
+      date: '2023',
+    },
+    {
+      id: 11,
       title: 'Tindog',
       description: 'A dog-themed dating website concept designed for pet lovers to explore dog profiles and find perfect playdate matches.',
       image: tinDog,
