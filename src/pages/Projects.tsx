@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
   const projects = [
     {
       id: 1,
-      title: 'Aneja Bareilly',
+      title: 'Aneja Transport',
       description: 'A responsive business website developed for Aneja Transport, a transport firm in Bareilly. Built with React, Tailwind, and Node.js, it highlights services, company profile, and streamlined contact options.',
       image: anejaTransport,
       tech: ['React.js', 'Tailwind CSS', 'Node.js', 'Material UI'],
